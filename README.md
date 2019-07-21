@@ -13,6 +13,12 @@ and then install using this link: [Marketplace.tf Price Calculator.user.js](http
 _____________________________________________
 
 
+#### 0.4.1
+
+Improved:
+* Removed unsecure(ish) eval()
+
+
 ### 0.4
 
 Added:

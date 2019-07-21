@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Marketplace.tf Price Calculator
 // @namespace    https://github.com/NetroScript
-// @version      0.4.0
+// @version      0.4.1
 // @description  A simple price Calculator on the dashboard page so you know for how much you have to sell an item if you want a specific amount of keys or how many keys you get for an specific price (Also works with just calculating the store commission).
 // @author       Netroscript
 // @match        https://marketplace.tf/*
