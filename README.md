@@ -13,6 +13,12 @@ and then install using this link: [Marketplace.tf Price Calculator.user.js](http
 _____________________________________________
 
 
+### 0.4
+
+Added:
+* Show the average price of all sales and how often it sold in total
+
+
 #### 0.3.1
 
 Fixed:

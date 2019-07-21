@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Marketplace.tf Price Calculator
 // @namespace    https://github.com/NetroScript
-// @version      0.3.1
+// @version      0.4.0
 // @description  A simple price Calculator on the dashboard page so you know for how much you have to sell an item if you want a specific amount of keys or how many keys you get for an specific price (Also works with just calculating the store commission).
 // @author       Netroscript
 // @match        https://marketplace.tf/*
@@ -125,6 +125,14 @@
 
     //Execute Main function with slight delay which the adding to Document might need
     setTimeout(main, 250);
+  }
+
+  if (window.location.pathname.startsWith("/items")) {
+      let pricedata = eval("(function(){return {" + $(".panel-body script").text().match(/var data = \{\n((?:.*?|\n)*?)\};/)[1] + "}})()");
+      let totalsold = pricedata.datasets[1].data.reduce((a, b) => parseFloat(b)+a, 0);
+      let price = (pricedata.datasets[0].data.reduce((a, b, i) => parseFloat(b)*parseFloat(pricedata.datasets[1].data[i])+a, 0) / totalsold).toFixed(2)+"$";
+      $(".panel-body canvas").parent().append("<div>Average price: " + price + "</div>");
+      $(".panel-body canvas").parent().append("<div>Total sales: " + totalsold + "</div>");
   }
 
   //Replace Timestamps with the local Timestamp
