@@ -129,7 +129,7 @@
 
   if (window.location.pathname.startsWith("/items")) {
       let basedata = $(".panel-body script").text().replace(/^\s+|\s+$|\s+(?=\s)/g, "");
-      let prices = basedata.match(/var data = {.+label: "Median Price".*?data: \[(.*?)\]/)[1].replace(/"/g, "").split(",");q
+      let prices = basedata.match(/var data = {.+label: "Median Price".*?data: \[(.*?)\]/)[1].replace(/"/g, "").split(",");
       let sold = basedata.match(/var data = {.+label: "Number Sold".*?data: \[(.*?)\]/)[1].replace(/"/g, "").split(",");
       let totalsold = sold.reduce((a, b) => (parseFloat(b)||0)+a, 0);
       let price = (prices.reduce((a, b, i) => (parseFloat(b)||0)*(parseFloat(sold[i])||0)+a, 0) / totalsold).toFixed(2)+"$";
